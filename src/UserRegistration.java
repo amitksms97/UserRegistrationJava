@@ -5,8 +5,11 @@ public class UserRegistration {
 	Scanner scanner=new Scanner(System.in);
 	String firstName;
 	String secondName;
+	String email;
 	public UserRegistration() {
 		this.firstName=null;
+		this.secondName=null;
+		this.email=null;
 	}
 	public void checkFirstName()
 	{
@@ -20,12 +23,18 @@ public class UserRegistration {
 		secondName=scanner.next();
 		System.out.println(Pattern.matches("[A-Z][a-z]{3,}", secondName));
 	}
+	public void checkEmail()
+	{
+		System.out.println("Enter a valid email id");
+		email=scanner.next();
+		System.out.println(Pattern.matches("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", email));
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Program");
 		UserRegistration object=new UserRegistration();
 		object.checkFirstName();
 		object.checkSecondName();
-
-	}
+		object.checkEmail();
+	}	
 
 }
